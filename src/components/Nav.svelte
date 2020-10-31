@@ -1,56 +1,62 @@
 <script>
-	export let segment;
+  export let segment;
 </script>
 
 <style>
-	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
-	}
-
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-
-	li {
-		display: block;
-		float: left;
-	}
-
-	[aria-current] {
-		position: relative;
-		display: inline-block;
-	}
-
-	[aria-current]::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: rgb(255,62,0);
-		display: block;
-		bottom: -1px;
-	}
-
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
-	}
+  nav {
+    display: flex;
+    position: relative;
+    top: 1em;
+    align-items: center;
+    background-color: #f1ebe0;
+    z-index: 5;
+    position: sticky;
+  }
+  .flow {
+    flex-grow: 1;
+  }
+  .item {
+    margin: 0.5em;
+    font-family: "raleway-bold";
+    display: flex;
+    align-items: center;
+    color: #6a2202;
+  }
+  .imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 160px;
+    margin-left: 1em;
+  }
+  a {
+    text-decoration: none;
+  }
+  @media only screen and (max-width: 720px) {
+    nav {
+      top: 0;
+    }
+    .item {
+      display: none;
+    }
+    .social {
+      display: flex;
+    }
+  }
 </style>
 
 <nav>
-	<ul>
-		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
-		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-	</ul>
+  <div class="imgContainer">
+    <img src="/thrit.png" />
+  </div>
+  <div class="flow"></div>
+  <div class="item"></div>
+  <div class="item social">
+    <div>
+      <a href="https://instagram.com/tinkerhub.rit" target="_blank"><img src="/insta.png" /></a>
+    </div>
+    <div>
+      <a href="https://www.facebook.com/TinkerHubRIT/" target="_blank"><img src="/fb.png" /></a>
+    </div>
+  </div>
 </nav>
